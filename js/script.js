@@ -1,12 +1,10 @@
 /* ============================================================
-   Victor Agbo — COS 106 Term Project
+   Champion Iwuchukwu — Student Portfolio
    Shared behaviour for every page (js/script.js)
 
    Contents:
-     1. Dark / light theme toggle (remembered in localStorage)
      2. Mobile hamburger menu (open, close, Escape key)
      3. Highlight the current page in the navigation
-     4. Fade-in-on-scroll animation (IntersectionObserver)
 
    Page-specific JavaScript lives in its own file so this one stays
    small: js/planner.js (task manager) and js/contact.js (validation).
@@ -18,49 +16,6 @@
   "use strict";
 
   var body = document.body;
-
-  /* ----------------------------------------------------------
-     1. THEME TOGGLE
-     The saved choice is read from localStorage on load, so the
-     theme survives a refresh and carries across pages.
-     ---------------------------------------------------------- */
-  var THEME_KEY = "victor-portfolio-theme";
-
-  function applyTheme(isDark) {
-    body.classList.toggle("dark", isDark);
-
-    // Keep the button's accessibility state in sync with the look.
-    document.querySelectorAll(".theme-toggle").forEach(function (btn) {
-      btn.setAttribute("aria-pressed", isDark ? "true" : "false");
-      btn.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light mode" : "Switch to dark mode"
-      );
-    });
-  }
-
-  var savedTheme = null;
-  try {
-    savedTheme = localStorage.getItem(THEME_KEY);
-  } catch (err) {
-    // localStorage can be blocked (e.g. strict privacy settings);
-    // the site still works, it just will not remember the choice.
-    savedTheme = null;
-  }
-
-  applyTheme(savedTheme === "dark");
-
-  document.querySelectorAll(".theme-toggle").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var isDark = !body.classList.contains("dark");
-      applyTheme(isDark);
-      try {
-        localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
-      } catch (err) {
-        /* ignore storage errors */
-      }
-    });
-  });
 
   /* ----------------------------------------------------------
      2. MOBILE MENU
@@ -138,37 +93,4 @@
     }
   });
 
-  /* ----------------------------------------------------------
-     4. FADE-IN ON SCROLL
-     Elements are marked with .reveal, then become visible once
-     they enter the viewport. If IntersectionObserver is missing,
-     everything is shown immediately so nothing is hidden.
-     ---------------------------------------------------------- */
-  var revealTargets = document.querySelectorAll(
-    ".hero-text, .hero-photo, .section-head, .bio-text, .facts-card, .info-card, .chip-list"
-  );
-
-  if (!("IntersectionObserver" in window)) {
-    return;
-  }
-
-  revealTargets.forEach(function (el) {
-    el.classList.add("reveal");
-  });
-
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  revealTargets.forEach(function (el) {
-    observer.observe(el);
-  });
 })();

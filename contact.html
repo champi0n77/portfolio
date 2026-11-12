@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Contact | Victor Agbo &mdash; COS 106 Term Project</title>
-  <meta name="description" content="Contact Victor Agbo, Computer Science student at MIVA Open University.">
-  <meta name="author" content="Victor Agbo">
+  <title>Contact | Champion Iwuchukwu</title>
+  <meta name="description" content="A contact form validation demo on Champion Iwuchukwu’s student portfolio.">
+  <meta name="author" content="Champion Iwuchukwu">
 
   <!-- Web font with system-font fallbacks, so the site still reads well offline -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,10 +28,10 @@
     <div class="container header-inner">
 
       <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true">VA</span>
+        <span class="brand-mark" aria-hidden="true">CI</span>
         <span class="brand-text">
-          <span class="brand-name">Victor Agbo</span>
-          <span class="brand-sub">COS 106 &middot; Student Portfolio</span>
+          <span class="brand-name">Champion Iwuchukwu</span>
+          <span class="brand-sub">Software Engineering Student</span>
         </span>
       </a>
 
@@ -46,14 +46,6 @@
       </nav>
 
       <div class="header-actions">
-        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-          <span class="icon-moon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-          </span>
-          <span class="icon-sun">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-          </span>
-        </button>
 
         <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
@@ -80,43 +72,27 @@
       <li><a href="contact.html" aria-current="page">Contact</a></li>
     </ul>
 
-    <p class="mobile-menu-foot">MIVA Open University<br>COS 106 Term Project</p>
+    <p class="mobile-menu-foot">Champion Iwuchukwu<br>Student portfolio</p>
   </aside>
 
   <!-- ============================================================
        MAIN CONTENT
        ============================================================ -->
   <main id="main">
-
-    <!-- ---------- Page banner ---------- -->
-    <section class="page-head">
-      <div class="container">
-        <p class="eyebrow">Get in touch</p>
-        <h1>Contact</h1>
-        <p class="page-intro">
-          Questions about my work, or a group assignment to plan? Send me a message.
-        </p>
-      </div>
-    </section>
-
-    <!-- ---------- Notice: full content is a later build step ---------- -->
-    <section class="section">
-      <div class="container">
-        <div class="notice">
-          <h2>This page is being built</h2>
-          <p class="section-note">
-            The Contact page will hold a contact form with name, email, phone and message
-            fields, JavaScript validation with an error message under each field, and a success
-            message after a valid submission. It will also list my email address and my GitHub
-            and LinkedIn profiles. The homepage and the academic planner are already finished
-            and working.
-          </p>
-          <p>
-            <a class="link-arrow" href="index.html">Back to the homepage</a>
-          </p>
-        </div>
-      </div>
-    </section>
+    <section class="page-head"><div class="container"><p class="eyebrow">Get in touch</p><h1>Contact</h1><p class="page-intro">This form is a demonstration of client-side validation. It does not send messages.</p></div></section>
+    <section class="section"><div class="container contact-layout">
+      <div class="contact-copy"><p class="eyebrow">About this form</p><h2>Contact form demo</h2><p>I made this form to practise validating input with JavaScript. Enter the required details to see how it works.</p><div class="contact-note"><strong>Note</strong><p>The form checks your details in the browser. It does not send or store your message.</p></div><a class="link-arrow" href="about.html">A little more about me</a></div>
+      <section class="planner-panel contact-panel" aria-labelledby="contact-form-title"><p class="panel-kicker">CONTACT FORM</p><h2 id="contact-form-title">Write a message</h2><p class="panel-intro">All fields are required.</p>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="field"><label for="full-name">Full Name</label><input id="full-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required aria-describedby="name-error"><p class="field-error" id="name-error"></p></div>
+          <div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="email-error"><p class="field-error" id="email-error"></p></div>
+          <div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="Digits only" required aria-describedby="phone-error"><p class="field-error" id="phone-error"></p></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="What would you like to share?" required aria-describedby="message-error"></textarea><p class="field-error" id="message-error"></p></div>
+          <button class="btn btn-accent" type="submit">Validate form</button>
+          <p id="contact-success" class="contact-success" role="status" hidden></p>
+        </form>
+      </section>
+    </div></section>
   </main>
 
   <!-- ============================================================
@@ -125,10 +101,10 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="brand-mark" aria-hidden="true">VA</span>
+        <span class="brand-mark" aria-hidden="true">CI</span>
         <p>
-          Victor Agbo
-          <span class="footer-muted">Student portfolio &middot; MIVA Open University</span>
+          Champion Iwuchukwu
+          <span class="footer-muted">Software Engineering Student</span>
         </p>
       </div>
 
@@ -141,31 +117,14 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-
-      <ul class="social-list social-list-sm">
-        <li>
-          <a href="https://github.com/victoragbo" target="_blank" rel="noopener" aria-label="GitHub profile">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/victoragbo" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:victor.agbo@example.com" aria-label="Send an email">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </a>
-        </li>
-      </ul>
     </div>
 
     <div class="container footer-bottom">
-      <p>&copy; 2026 Victor Agbo | COS 106 Term Project | MIVA Open University</p>
+      <p>&copy; 2026 Champion Iwuchukwu | Student Portfolio</p>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>
