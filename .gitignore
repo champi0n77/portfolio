@@ -1,0 +1,13 @@
+# Freebuff Desktop local configuration — do not commit
+.freebuff/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
